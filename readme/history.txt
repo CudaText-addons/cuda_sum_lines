@@ -1,2 +1,8 @@
-0.3.0 (oct 2015)
+
+2017.07.27
++ plugin rewritten, to support normal/column selections
++ report text shows: type of selection, indexes of selected lines/cols
++ set report tab title to "Sum Lines"
+
+2015.10
 init
