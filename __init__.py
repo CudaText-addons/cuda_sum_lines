@@ -1,33 +1,31 @@
 from cudatext import *
 
 class Command:
-    def get_sum(self, lines):
+    def get_report(self, lines):
+        res = []
         nums = []
         bads = []
 
         #ignore empty/spaces
-        lines = [s for s in lines if s.strip()]
+        lines = [s.strip() for s in lines if s.strip()]
 
         for (i, s) in enumerate(lines):
             try:
                 num = float(s)
                 nums += [num]
             except:
-                bads += ['  - selection line '+str(i+1)+': '+s]
-
-        eol = '\n'
-        res = ''
+                bads += ['- selection line '+str(i+1)+': '+s]
 
         if nums:
-            res += 'Sum: ' + str(sum(nums)) + eol
-            res += 'Min: ' + str(min(nums)) + eol
-            res += 'Max: ' + str(max(nums)) + eol
-            res += 'Avg: ' + str(sum(nums) / float(len(nums))) + eol
+            res += ['Sum: ' + str(sum(nums))]
+            res += ['Min: ' + str(min(nums))]
+            res += ['Max: ' + str(max(nums))]
+            res += ['Avg: ' + str(sum(nums) / float(len(nums)))]
 
-        res += 'Numbers processed: ' + str(len(nums)) + eol
-        res += 'Lines processed: ' + str(len(lines)) + eol
+        res += ['Numbers processed: ' + str(len(nums))]
+        res += ['Lines processed: ' + str(len(lines))]
         if bads:
-            res += 'Lines skipped: ' + str(len(bads)) + eol + eol.join(bads) + eol
+            res += ['Lines skipped: ' + str(len(bads))] + bads
         return res
 
     def run(self):
@@ -57,12 +55,12 @@ class Command:
         else:
             return
 
-        text = self.get_sum(lines)
-        if not text:
+        res = self.get_report(lines)
+        if not res:
             msg_status('Sum Lines: empty result')
             return
 
-        text = caption+'\n\n'+text
+        text = caption + '\n\n' + '\n'.join(res) + '\n'
 
         file_open('')
         ed.set_prop(PROP_TAB_TITLE, 'Sum Lines')
