@@ -47,8 +47,7 @@ class Command:
             for i in range(y1, y2+1):
                 s = ed.get_text_line(i)
                 s = s[x1:x2]
-                print('"'+s+'"')
-                lines.append(s)
+                lines += [s]
 
             caption = 'Column selection: lines %d..%d, columns %d..%d' % (y1+1, y2+1, x1+1, x2+1)
 
