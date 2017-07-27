@@ -1,9 +1,13 @@
-Plugin adds one command, "Sum Lines", which sums numbers in all lines affected 
-by selection (any type of selection, entire lines taken, float nums allowed). 
-It outputs result sum to new tab, and outputs list of lines which contain invalid 
-numbers (ie mistakes).
+Plugin for CudaText.
+Plugin gives command "Sum Lines", which sums numbers in selection. 
+Supported normal/column selections. 
+Multi-selections not yet supported.
 
-Example of sel-text:
+Empty/spaces lines are ignored.
+Float numbers (with dot) are supported.
+It shows report in a new tab.
+
+Example of selected text:
 
     10
     100.10
@@ -11,13 +15,20 @@ Example of sel-text:
     20.005
     100.10d
 
-Output is:
+Report will be like:
+
+    Normal selection: lines 10..14
 
     Sum: 130.105
-    Lines processed: 6
+    Min: 10.0
+    Max: 100.1
+    Avg: 43.36833333333333
+    Numbers processed: 3
+    Lines processed: 5
     Lines skipped: 2
-      Line 3: dd
-      Line 5: 100.10d
+      - selection line 3:     dd
+      - selection line 5:     100.10d
 
 
-Author: Alexey T.
+Author: Alexey (CudaText)
+License: MIT
