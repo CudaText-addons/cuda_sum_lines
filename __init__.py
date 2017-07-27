@@ -17,10 +17,12 @@ class Command:
 
         eol = '\n'
         res = ''
-        res += 'Sum: ' + str(sum(nums)) + eol
-        res += 'Min: ' + str(min(nums)) + eol
-        res += 'Max: ' + str(max(nums)) + eol
-        res += 'Avg: ' + str(sum(nums) / float(len(nums))) + eol
+
+        if nums:
+            res += 'Sum: ' + str(sum(nums)) + eol
+            res += 'Min: ' + str(min(nums)) + eol
+            res += 'Max: ' + str(max(nums)) + eol
+            res += 'Avg: ' + str(sum(nums) / float(len(nums))) + eol
 
         res += 'Numbers processed: ' + str(len(nums)) + eol
         res += 'Lines processed: ' + str(len(lines)) + eol
