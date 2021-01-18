@@ -3,6 +3,7 @@ title=Sum Lines
 desc=Calculates sum/min/max/avg of numbers in selected lines
 type=cudatext-plugin
 subdir=cuda_sum_lines
+homepage=https://github.com/CudaText-addons/cuda_sum_lines
 
 [item1]
 section=commands
