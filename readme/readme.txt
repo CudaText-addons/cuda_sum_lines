@@ -30,5 +30,5 @@ Report will be like:
       - selection line 5:     100.10d
 
 
-Author: Alexey (CudaText)
+Author: Alexey Torgashin (CudaText)
 License: MIT
